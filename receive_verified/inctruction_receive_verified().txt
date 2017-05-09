@@ -1,0 +1,24 @@
+Функция для получения Point-ов из файла (*.txt) с гарантированно заданной структуторой:
+x_value y_value z_value\n
+т.е.
+doubl'spase'doubl'spase'doubl'\n'
+
+receive_verified(std::string &file_name,std::vector<Point> &point_vector,
+					 std::vector<Point*> &point_pointer_vector);
+&file_name 									-arg1-	ссылка на имя файла с данными
+std::vector<Point> &point_vector 			-arg2-	ссылка на массив, куда будет размещены Point-ы
+ std::vector<Point*> &point_pointer_vector	-arg3-	ссылка на массив, куда будут размещены адреса
+ 													 всех непустых значений из point_vector-а
+_________________________________________________________________________________________________
+
+How to use:
+	1.	std::string file_name = "data.txt";
+		std::vector<Point> point_vector;
+		std::vector<Point*> point_pointer_vertor;
+		receive_verified(file_name, point_vector, point_pointer_vertor);
+	2.	Compile with -std=c++11 -pthread
+	
+	На выходе имеем неоптимально заполненный массив point_vector
+	(много неиницалицированных элементов, перерасход памяти)
+	И оптимально заполненный массив point_pointer_vertor(<Point*>),
+	с которым и следует дальше работать 
