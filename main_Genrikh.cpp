@@ -83,10 +83,3 @@ cout << vect[2].bridge[2]->x << " " << vect[2].bridge[2]->y << endl << vect[2].b
 
 return 0;
 }
-
-
-
-
-
-
-
