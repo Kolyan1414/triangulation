@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1494337834 source:c:\game\zpro\triangulation\graphics.cpp
+	"Graphics.h"
+
+1494336168 c:\game\zpro\triangulation\graphics.h
+	"GL/glut.h"
+	<cmath>
+	"Point/point.h"
+	<Vector>
+
+1494337663 source:c:\game\zpro\triangulation\main.cpp
+	<iostream>
+	"Graphics.h"
+	"Point/point.cpp"
+
+1493834703 c:\game\zpro\triangulation\graphics.cpp
+	"Graphics.h"
+
+1494336670 c:\game\zpro\triangulation\point\point.h
+	<iostream>
+	<fstream>
+
+1494334809 c:\game\zpro\triangulation\point\point.cpp
+	"point.h"
+
