@@ -1,0 +1,36 @@
+Функция, которая должна быть подставлена при запуске thread-а
+		std::thread  №thread (receive_verified_thread, arg_1, arg_2, arg_3, arg_4);
+
+void receive_verified_thread(std::string *file_name, std::vector<Point> *point_vector,
+							 std::vector<Receive_Navigation> *navigation_vector, short thread_num = 0);
+
+*file_name			- 	arg_1	-	указатель на имя файла с правильными данными
+*point_vector   	- 	arg_2	-	указатель на вектор в который будут сохранены точки
+*navigation_vector	-	arg_3	-	указатель на вектор структур (Receive_Navigation), который координирует работу thread-ов
+thread_num			-	arg_4	-	номер thread-а (0,1,2   THREAD_NUM)
+
+struct Receive_Navigation
+{
+	int point_vector_offset; 	-	позиция в vector-e, хранящем Point, с которой thread начнет его заполнять  
+	std::streampos file_offset;	-	позиция в файле, с которой начнет читать thread
+	bool check_file_offset;		-	флаг, который означает что thread нашел правильную позицию в файле 
+								(!!! для нулевого thread-а 0 = размер файла достаточно велик, чтобы запумстить многопоточность 1 = запускается только один thread)
+	int point_vector_end;		-	позиция в vector-е указывающая на следуюший за последним считанным элемент
+};
+
+___________________________________________________________________________
+
+How to use? ()
+	1. Получить имя файла в file_name
+	2. Создать point_vector<Point> для хранения точек, зарезервировать место с запасам (ожидаемое кол-во точек + THREAD_NUM * 20)
+	3. #define THREAD_NUM x , x -кол-во thread-ов
+	4. Создать navigation_vector<Receive_Navigation> для хранения руководства каждому thread-у, зарезервировать место(THREAD_NUM)
+	5. Заполнить navigation_vector
+	6. std::thread  №thread (receive_verified_thread, arg_1, arg_2, arg_3, arg_4);
+	7. №thread.join();
+	8. Compile with -std=c++11 -pthread
+
+	Итого: 
+		point_vector, в котором хранятся точки(не все элементы значащие)
+		*полезные данные находятся под номерами с navigation_vector[i].point_vector_offset по navigation_vector[i].point_vector_end
+
