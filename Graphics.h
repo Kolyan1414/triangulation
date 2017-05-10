@@ -21,7 +21,7 @@ void changeSize(int, int);                           //funct to set projection m
 void processNormalKeys(unsigned char, int, int);     //processing of clicks x3
 void pressSpecialKey(int , int, int);
 void releaseSpecialKey(int , int, int);
-void InitializationGLUT(int *, char **, int, int, std::vector <Point*>);        //fnc to init window and draw
+void InitializationGLUT(int *, char **, int, int, std::vector <Point*> *);        //fnc to init window and draw
 /*1st is pointer to argc, 2nd - char** argv (param to main)
 3d is window size in pixels and the last one is flag full_screen
 

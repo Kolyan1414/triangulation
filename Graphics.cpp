@@ -11,11 +11,11 @@ double zoom=1;
 
 double Xo=0, Yo=0, Zo=0;
 
-std::vector <Point*> main_pointer;
+std::vector <Point*> *main_pointer;
 
 
 
-void InitializationGLUT(int* argc, char** argv, int param, int flag, std::vector <Point*> pointer){
+void InitializationGLUT(int* argc, char** argv, int param, int flag, std::vector <Point*> *pointer){
 
     main_pointer=pointer;
 
@@ -150,17 +150,17 @@ void display(){
     glColor3f(0,0,0);
 
     int max_vector_size=0, counter=0;
-    max_vector_size=1;
+    max_vector_size=(*main_pointer).size();
 
-    glPointSize(5);
+    std::cout << max_vector_size;
+
+    glPointSize(500);
 
     glBegin(GL_POINTS);
-        for(counter=0;counter< max_vector_size;counter++)
-        (*main_pointer[counter]).show();
-            glVertex3d((*main_pointer[counter]).x,
-                        (*main_pointer[counter]).y,
-                        (*main_pointer[counter]).z);
-        glVertex3d(0,0,0);
+        for(counter=0;counter< 5;counter++)
+            glVertex3d((*main_pointer)[counter]->x,
+                        (*main_pointer)[counter]->y,
+                        (*main_pointer)[counter]->z);
     glEnd();
 
 	glFlush();
