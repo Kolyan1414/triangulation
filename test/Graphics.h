@@ -1,10 +1,11 @@
 #pragma once
 
 
-#include "GL/glut.h"
+#include <GL/glut.h>
 #include <cmath>
-#include "Point/point.h"
-#include <Vector>
+#include "point.h"
+#include "point.cpp"
+#include <vector>
 
 
 #define LL 0           //640*480

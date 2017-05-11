@@ -6,9 +6,9 @@ int add_from_console(std::vector<Point> &console_point_vector, std::vector<Point
 	//set return value the number of concole point
 	int number = 0;
 	std::cout << "Enter the points in the format: x y z" << std::endl;
-	std::cout << "x - first coordinate" << std::endl;
-	std::cout << "y - second coordinate" << std::endl;
-	std::cout << "z - value" << std::endl;
+	std::cout << "\tx - first coordinate" << std::endl;
+	std::cout << "\ty - second coordinate" << std::endl;
+	std::cout << "\tz - value" << std::endl;
 	std::cout << "press 'q' to complete input" << std::endl;
 
 
@@ -34,7 +34,6 @@ int add_from_console(std::vector<Point> &console_point_vector, std::vector<Point
 		}
 		if(std::cin.peek() == (int)'q')
 				break;
-		std::cout << "3" << std::endl;
 		console_point_vector[number] = tmp_point;
 		number++;
 		std::cin.ignore(256, '\n');   // ignore until \n

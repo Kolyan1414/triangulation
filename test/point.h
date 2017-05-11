@@ -6,10 +6,11 @@
 
 class Point
 {
+public:
 	double x;
 	double y;
 	double z;
-public:
+
 	//Inpurt and output operators
 	friend std::ostream & operator<<(std::ostream & os, const Point & arg);	
 	friend std::istream & operator>>(std::istream & is, Point & arg);

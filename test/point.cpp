@@ -1,3 +1,5 @@
+#ifndef POINT_CPP_	
+#define POINT_CPP_
 #include "point.h"
 
 //Inpurt and output operators
@@ -70,3 +72,4 @@ void Point::put_f(std::ofstream & ofs)
 {
 	ofs << this->x << " " << this->y<< " " << this->z << "\n";
 }
+#endif
